@@ -2,11 +2,12 @@
 
 A secure, offline desktop password manager built with **Java** and **JavaFX**, featuring AES encryption, brute-force protection, password breach detection, and an animated dark-themed UI.
 
-> A joint academic project developed from **TIP – Quezon City**.
-
 
 ## Screenshots
-
+<img width="1919" height="1030" alt="1" src="https://github.com/user-attachments/assets/261f2f35-29e8-4ca7-8846-934a4a5e4204" />
+<img width="1919" height="1029" alt="2" src="https://github.com/user-attachments/assets/ca06d275-335b-4f4f-9236-43947c955175" />
+<img width="1919" height="1031" alt="4" src="https://github.com/user-attachments/assets/c14d9bcd-fbed-480a-a81b-2e9ee88918ff" />
+<img width="1919" height="1029" alt="5" src="https://github.com/user-attachments/assets/b853480c-6fb2-4f26-9dd2-7a07252e79db" />
 
 ---
 
@@ -29,7 +30,7 @@ A secure, offline desktop password manager built with **Java** and **JavaFX**, f
 ## Project Structure
 
 ```
-aurix/
+Password Manager/
 ├── src/
 │   ├── gui/
 │   │   ├── MainApp.java             # Main UI and application entry point
@@ -51,7 +52,8 @@ aurix/
 │       └── VaultMeta.java           # Salt and vault metadata
 ├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+└── common_passwords.txt
 ```
 
 ---
@@ -108,10 +110,9 @@ This is a joint academic project developed collaboratively by:
 | Brioso, Jasmine Myeisha  | Security Engineering & Data Architecture |
 | Diamante III, Benjamin   | UI Design & Animation |
 | Mejia, Charles Daniel    | Security Engineering & Data Architecture |
-| Mayuga, Samantha Nicole  | UI Design & Animation |
+| Mayuga, Samantha Nicole  | UI Design |
 
 ---
 
 ## License
-
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
