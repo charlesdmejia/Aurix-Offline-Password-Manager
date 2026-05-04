@@ -2,7 +2,7 @@
 
 A secure, offline desktop password manager built with **Java** and **JavaFX**, featuring AES encryption, brute-force protection, password breach detection, and an animated dark-themed UI.
 
-> A joint academic project developed by students of the **Technological Institute of the Philippines – Quezon City**.
+> A joint academic project developed by students of the **TIP – Quezon City**.
 
 
 ## Screenshots
@@ -36,15 +36,15 @@ aurix/
 │   │   └── styles.css               # JavaFX stylesheet
 │   ├── core/
 │   │   ├── BreachChecker.java       # Common password breach detection
-│   │   ├── BruteForceProtection.java# Login attempt limiter
-│   │   ├── CryptoUtils.java         # AES-GCM encryption/decryption
-│   │   ├── LoggingSystem.java       # App-wide logging
-│   │   ├── PasswordHasher.java      # PBKDF2 hashing and AES key generation
-│   │   ├── SearchManager.java       # Vault search logic
-│   │   ├── SecurityConfig.java      # Security constants and configuration
+│   │   ├── AccessLimiter.java       # Login attempt limiter
+│   │   ├── AesGcmCipher.java        # AES-GCM encryption/decryption
+│   │   ├── AppLogger.java           # App-wide logging
+│   │   ├── Key Derivation.java      # PBKDF2 hashing and AES key generation
+│   │   ├── VaultSearch.java         # Vault search logic
+│   │   ├── VaultConfig.java         # Security constants and configuration
 │   │   ├── SecurityInfo.java        # Security explanation text
-│   │   ├── StorageManager.java      # Encrypted file I/O
-│   │   └── TamperDetector.java      # HMAC integrity verification
+│   │   ├── VaultRepo.java           # Encrypted file I/O
+│   │   └── IntegrityVerifier.java   # HMAC integrity verification
 │   └── model/
 │       ├── PasswordEntry.java       # Single password record
 │       ├── Vault.java               # Collection of entries + hash history
@@ -104,11 +104,11 @@ This is a joint academic project developed collaboratively by:
 
 | Name | Role |
 |---|---|
-| Baniqued, Shauri Mae     | UI Design & Animation, Login/Vault screens |
-| Brioso, Jasmine Myeisha  | Encryption, Key Derivation, Storage |
-| Diamante III, Benjamin   | Breach Detection, Password History |
-| Mejia, Charles Daniel    | Search, Brute-Force Protection |
-| Mayuga, Samantha Nicole  | Settings, Clipboard Management |
+| Baniqued, Shauri Mae     | UI Design & Animation |
+| Brioso, Jasmine Myeisha  | Security Engineering & Data Architecture |
+| Diamante III, Benjamin   | UI Design & Animation |
+| Mejia, Charles Daniel    | Security Engineering & Data Architecture |
+| Mayuga, Samantha Nicole  | UI Design & Animation |
 
 ---
 

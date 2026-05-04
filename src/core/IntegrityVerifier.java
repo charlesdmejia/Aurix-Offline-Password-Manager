@@ -4,7 +4,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Arrays;
 
-public class TamperDetector {
+public class IntegrityVerifier {
 
 	public static byte[] generateHMAC(byte[] data, byte[] key) throws Exception {
         Mac mac = Mac.getInstance("HmacSHA256");

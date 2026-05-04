@@ -36,7 +36,7 @@ public class VaultRepo {
         byte[] vaultBytes      = byteStream.toByteArray();
         byte[] iv              = AesGcmCipher.generateIV();
         byte[] encryptedVault  = AesGcmCipher.encrypt(vaultBytes, aesKey, iv);
-        byte[] hmac            = TamperDetector.generateHMAC(
+        byte[] hmac            = IntegrityVerifier.generateHMAC(
                                      encryptedVault, aesKey.getEncoded());
  
         try (FileOutputStream fos = new FileOutputStream(VAULT_FILE)) {
@@ -72,7 +72,7 @@ public class VaultRepo {
             fileData.length
         );
  
-        boolean valid = TamperDetector.verifyHMAC(
+        boolean valid = IntegrityVerifier.verifyHMAC(
             encryptedVault, aesKey.getEncoded(), storedHmac);
         if (!valid) {
             throw new SecurityException("Vault file has been modified!");
