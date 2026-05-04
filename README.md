@@ -2,7 +2,7 @@
 
 A secure, offline desktop password manager built with **Java** and **JavaFX**, featuring AES encryption, brute-force protection, password breach detection, and an animated dark-themed UI.
 
-> A joint academic project developed by students of the **TIP – Quezon City**.
+> A joint academic project developed from **TIP – Quezon City**.
 
 
 ## Screenshots
