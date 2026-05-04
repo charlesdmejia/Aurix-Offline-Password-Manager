@@ -264,7 +264,7 @@ public class MainApp extends Application {
         card.setMaxHeight(Region.USE_PREF_SIZE); 
         card.setPrefHeight(Region.USE_COMPUTED_SIZE); 
 
-        Label logo = new Label("Aurix");
+        Label logo = new Label("AURIX");
         logo.setFont(FONT_TITLE);
         logo.setTextFill(ACCENT);
 
@@ -635,7 +635,7 @@ public class MainApp extends Application {
         sidebar.setPrefWidth(220);
         sidebar.setStyle("-fx-background-color: " + toHex(BG_CARD) + "; -fx-padding: 24 16 24 16;");
 
-        Label sideTitle = new Label("Aurix");
+        Label sideTitle = new Label("AURIX");
         sideTitle.setFont(Font.font("Consolas", FontWeight.BOLD, 24));
         sideTitle.setTextFill(ACCENT);
 
