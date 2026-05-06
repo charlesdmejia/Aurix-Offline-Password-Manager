@@ -181,7 +181,7 @@ public class MainApp extends Application {
 
         table.getColumns().addAll(colSite, colUser, colPass, colCat, colActions);
 
-        // ── Double-click a row to reveal its password for 10 seconds
+        // Double-click a row to reveal its password for 10 seconds
         table.setRowFactory(tv -> {
             TableRow<PasswordEntry> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -242,7 +242,6 @@ public class MainApp extends Application {
     //  SCREEN 1 — LOGIN
     // ─────────────────────────────────────────────
     private void showLogin() {
-        // ── AnchorPane so background truly fills the entire window
         AnchorPane root = new AnchorPane();
 
         Pane animatedBg = createAnimatedLoginBackground();
@@ -364,9 +363,13 @@ public class MainApp extends Application {
 
         createBtn.setOnAction(e -> { errLabel.setText(" "); showCreate(); });
 
+        pwField.setOnKeyPressed(e -> {
+            if (e.getCode() == javafx.scene.input.KeyCode.ENTER) loginBtn.fire();
+        });
+
         card.getChildren().addAll(logo, sub, sep, pwLabel, pwField, loginBtn, errLabel, forgotBtn, createBtn);
 
-        // ── StackPane centers the card; AnchorPane stretches it to fill root
+        // StackPane centers the card; AnchorPane stretches it to fill root
         card.setMinHeight(Region.USE_PREF_SIZE);  
         card.setMaxHeight(Region.USE_PREF_SIZE);  
         StackPane cardHolder = new StackPane(card);
@@ -429,7 +432,7 @@ public class MainApp extends Application {
     private void addParticle(Pane pane) {
         double size = 3 + Math.random() * 4;
         Circle c = new Circle(size, Color.web("#63b5ed", 0.18));
-        // Use 1920×1080 so particles cover any maximized screen
+        // Used 1920×1080 so particles cover any maximized screen
         c.setLayoutX(Math.random() * 1920);
         c.setLayoutY(Math.random() * 1080);
         pane.getChildren().add(c);
@@ -475,7 +478,6 @@ public class MainApp extends Application {
     //  SCREEN 2 — CREATE VAULT
     // ─────────────────────────────────────────────
     private void showCreate() {
-        // ── AnchorPane so background truly fills the entire window
         AnchorPane root = new AnchorPane();
 
         Pane animatedBg = createAnimatedLoginBackground();
@@ -606,13 +608,19 @@ public class MainApp extends Application {
                         "-fx-border-color: rgba(246,173,85,0.35); " +
                         "-fx-border-radius: 6; -fx-background-radius: 6; " +
                         "-fx-padding: 10 12 10 12;");
+        
+            pw1.setOnKeyPressed(e -> {
+                if (e.getCode() == javafx.scene.input.KeyCode.ENTER) createBtn.fire();
+            });
+            pw2.setOnKeyPressed(e -> {
+                if (e.getCode() == javafx.scene.input.KeyCode.ENTER) createBtn.fire();
+            });
 
         card.getChildren().addAll(title, sub, sep, notice,
                 styledLabel("MASTER PASSWORD"), pw1, strengthPanel,
                 styledLabel("CONFIRM PASSWORD"), pw2,
                 createBtn, errLabel, backBtn);
 
-        // ── StackPane centers the card; AnchorPane stretches it to fill root
         StackPane cardHolder = new StackPane(card);
         AnchorPane.setTopAnchor(cardHolder,    0.0);
         AnchorPane.setBottomAnchor(cardHolder, 0.0);
@@ -630,7 +638,7 @@ public class MainApp extends Application {
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: " + toHex(BG_DARK) + ";");
 
-        // ── Sidebar
+        // Sidebar
         VBox sidebar = new VBox(10);
         sidebar.setPrefWidth(220);
         sidebar.setStyle("-fx-background-color: " + toHex(BG_CARD) + "; -fx-padding: 24 16 24 16;");
@@ -704,7 +712,7 @@ public class MainApp extends Application {
 
         topBar.getChildren().addAll(vaultTitle, searchField, searchFilter, spacerTop, addBtn);
 
-        // ── Table container
+        // Table container
         Label emptyLabel = new Label("🔐\n\nNo passwords saved yet.\nClick \"+ Add Entry\" to get started.");
         emptyLabel.setStyle("-fx-text-fill: " + toHex(TEXT_MUTED) + "; -fx-alignment: center; -fx-text-alignment: center;");
         emptyLabel.setFont(Font.font("Consolas", 16));
@@ -713,7 +721,7 @@ public class MainApp extends Application {
 
         StackPane tableContainer = new StackPane(table, emptyLabel);
 
-        // ── Bottom generator bar
+        // Bottom generator bar
         HBox bottomBar = new HBox(10);
         bottomBar.setAlignment(Pos.CENTER_LEFT);
         bottomBar.setStyle("-fx-background-color: " + toHex(BG_CARD) +
@@ -820,7 +828,7 @@ public class MainApp extends Application {
         content.setMaxWidth(600);
         content.setStyle("-fx-background-color: transparent;");
 
-        // ── Security Info card
+        // Security Info card
         VBox secInfoCard = settingsCard("🛡 How Your Vault is Protected");
         secInfoCard.setStyle("-fx-background-color: " + toHex(BG_CARD) +
                              "; -fx-border-color: " + toHex(BORDER_COLOR) +
@@ -842,7 +850,7 @@ public class MainApp extends Application {
             secInfoCard.getChildren().add(lbl);
         }
 
-        // ── Change password card
+        // Change password card
         VBox changePwCard = settingsCard("🔒 Change Master Password");
         changePwCard.setStyle("-fx-background-color: " + toHex(BG_CARD) +
                               "; -fx-border-color: " + toHex(BORDER_COLOR) +
@@ -885,7 +893,7 @@ public class MainApp extends Application {
                 styledLabel("CONFIRM NEW PASSWORD"), conPw,
                 changePwBtn, changePwErr);
 
-        // ── Danger zone card
+        // Danger zone card
         VBox dangerCard = settingsCard("Proceed with Caution");
         dangerCard.setStyle("-fx-background-color: " + toHex(BG_CARD) +
                             "; -fx-border-color: " + toHex(BORDER_COLOR) +
@@ -918,7 +926,7 @@ public class MainApp extends Application {
 
         dangerCard.getChildren().addAll(dangerNote, clearBtn, logoutBtn);
 
-        // ── Clipboard card
+        // Clipboard card
         VBox clipCard = settingsCard("Auto-Clear Clipboard");
         clipCard.setStyle("-fx-background-color: " + toHex(BG_CARD) +
                           "; -fx-border-color: " + toHex(BORDER_COLOR) +
